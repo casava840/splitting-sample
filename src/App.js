@@ -2,11 +2,14 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const onClick = () => {
+    import('./notify').then(result => result.default()); //이렇게 하면 notify가 빌드시 main으로부터 분리되어있음
+  };
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <h1>Hello React!</h1>
+        <h1 onClick={onClick}>Hello React!</h1>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
